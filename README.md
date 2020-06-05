@@ -1,4 +1,4 @@
-# Google Maps Rule Flutter
+# Google Maps Rule Flutter :straight_ruler:
 ![Alt Text](https://raw.githubusercontent.com/edwinmacalopu/google_maps_rule/master/mapsrule.gif?raw=true)
 ##### Important:
 add the google maps key in the route:

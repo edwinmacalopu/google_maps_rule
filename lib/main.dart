@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_rule/src/bloc/bloc.dart';
-import 'package:provider/provider.dart';
 import 'package:google_maps_rule/src/pages/Gmaps_page.dart';
+import 'package:provider/provider.dart';
 
 void main() => runApp(MyApp());
 

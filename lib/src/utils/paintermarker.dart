@@ -13,7 +13,7 @@ class Paintermarker extends CustomPainter {
   final textPainter=TextPainter(
     text:TextSpan(
       text:this.label,
-      style: TextStyle(fontSize: 25,color:Colors.black,fontWeight: FontWeight.bold,
+      style: TextStyle(fontSize: 30,color:Colors.black,fontWeight: FontWeight.bold,
       shadows: [
       Shadow(
         offset: Offset(2.0, 2.0),

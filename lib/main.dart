@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_maps_rule/src/bloc/bloc.dart';
 import 'package:google_maps_rule/src/pages/Gmaps_page.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    systemNavigationBarColor: Colors.blueAccent, // navigation bar color
+    statusBarColor: Colors.transparent, // status bar color
+    statusBarIconBrightness: Brightness.dark
+     
+  ));
+  runApp(MyApp());}
 
 class MyApp extends StatelessWidget {
   @override

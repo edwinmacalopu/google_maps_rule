@@ -22,7 +22,6 @@ double dLon = degToRadian(lon2 - lon1);
     var a = 0.5 - c((lat2 - lat1) * p)/2 + 
           c(lat1 * p) * c(lat2 * p) * 
           (1 - c((lon2 - lon1) * p))/2;          
-    print( 12742 * asin(sqrt(a)));
     double res= 12742 * asin(sqrt(a));
     if (res.toString().substring(0,1)=="0"){
           res=(12742 * asin(sqrt(a)))*1000;

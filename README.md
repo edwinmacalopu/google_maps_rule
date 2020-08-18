@@ -1,5 +1,5 @@
 # Google Maps Rule Flutter :straight_ruler:
-![Alt Text](https://raw.githubusercontent.com/edwinmacalopu/google_maps_rule/master/mapsrule.gif?raw=true)
+![Alt Text](https://raw.githubusercontent.com/edwinmacalopu/google_maps_rule/master/area_rule.gif?raw=true)
 ##### Important:
 add the google maps key in the route:
 ```sh

@@ -1,7 +1,9 @@
 import 'dart:math' as math;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'dart:math' show cos, sqrt, asin;
+import 'dart:math' show asin, atan2, cos, pi, sin, sqrt, tan;
+import 'math_util.dart';
 class Calculations{
+  static const num earthRadius = 6371009.0;
   LatLng coordinatecenter(double lat1,double lon1,double lat2, double lon2){
 double degToRadian(final double deg) => deg * (math.pi / 180.0);  
 double radianToDeg(final double rad) => rad * (180.0 / math.pi );
@@ -31,4 +33,38 @@ double dLon = degToRadian(lon2 - lon1);
          return res.toStringAsFixed(2)+" Km";
     }
    }
+
+  static num computeArea(List<LatLng> path) => computeSignedArea(path).abs();
+
+  static num computeSignedArea(List<LatLng> path) =>
+      _computeSignedArea(path, earthRadius);
+
+  static num _computeSignedArea(List<LatLng> path, num radius) {
+    if (path.length < 3) {
+      return 0;
+    }
+
+    final prev = path.last;
+    var prevTanLat = tan((pi / 2 - MathUtil.toRadians(prev.latitude)) / 2);
+    var prevLng = MathUtil.toRadians(prev.longitude);
+    final total = path.fold<num>(0.0, (value, point) {
+      final tanLat = tan((pi / 2 - MathUtil.toRadians(point.latitude)) / 2);
+      final lng = MathUtil.toRadians(point.longitude);
+
+      value += _polarTriangleArea(tanLat, lng, prevTanLat, prevLng);
+
+      prevTanLat = tanLat;
+      prevLng = lng;
+
+      return value;
+    });
+
+    return total * (radius * radius);
+  }
+  static num _polarTriangleArea(num tan1, num lng1, num tan2, num lng2) {
+    final deltaLng = lng1 - lng2;
+    final t = tan1 * tan2;
+    return 2 * atan2(t * sin(deltaLng), 1 + t * cos(deltaLng));
+  }
+
 }

@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_rule/src/bloc/bloc.dart';
-import 'package:google_maps_rule/src/pages/Gmaps_page.dart';
+import 'package:google_maps_rule/src/pages/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    systemNavigationBarColor: Colors.blueAccent, // navigation bar color
-    statusBarColor: Colors.transparent, // status bar color
-    statusBarIconBrightness: Brightness.dark
-     
-  ));
-  runApp(MyApp());}
+      statusBarColor: Colors.transparent, // status bar color
+      statusBarIconBrightness: Brightness.dark));
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -29,7 +27,7 @@ class MyApp extends StatelessWidget {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         )),
-        home: GmapsPage(),
+        home: SplashScreen(),
       ),
     );
   }
